@@ -1,0 +1,159 @@
+<!-- <html>
+<head>
+ 
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ 
+</head>
+ 
+<body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <section class="container-fluid">
+
+    <section class="row justify-content-center">
+      <section class="col-12 col-sm-6 col-md-4">
+        <form [formGroup]="myform" (ngSubmit)="onSubmit()" class="form-container">
+            <div class="form-group">
+            <h4 class="text-center font-weight-bold"> Login </h4>
+            <label for="text">Username</label>
+            <input type="text" class="form-control" formControlName="username">
+            </div>
+
+            <div class="form-group">
+              
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email">
+                </div>
+
+            <div class="form-group">
+            <label for="InputPassword1">Password</label>
+            <input type="password" class="form-control" id="InputPassword1" formControlName="password" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <label for="InputPassword2">Password</label>
+                <input type="password" class="form-control" id="InputPassword2" formControlName="password2" placeholder=" Confirm Password">
+                </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        
+        </form>
+      </section>
+    </section>
+  </section>
+
+</body>
+</html> -->
+
+
+<body bgcolor="black">
+  
+
+  <div class="form">
+    <form class="form"  [formGroup]="myform" (ngSubmit)="onSubmit()" class="form-container">
+      <div class="title">Welcome</div>
+      <div class="subtitle">Employee Registeration</div>
+      <div class="input-container ic1">
+        <input id="username" class="input" pattern=" [A-Za-z]{1,32}" type="text" placeholder=" " formControlName="username" required/>
+        <div *ngIf=" f['username'].errors && submitted"><span style="color:red ;">Incorrect or Invalid username</span></div>
+        <div class="cut"></div>
+        <label for="firstname" class="placeholder">Username</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="password" class="input" pattern=" [A-Za-z]{1,32}" type="text" placeholder=" " formControlName="password" required/>
+        <div *ngIf=" f['password'].errors && submitted"><span style="color:red ;">Incorrect or Invalid username</span></div>
+        <div class="cut"></div>
+        <label for="lastname" class="placeholder">password</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="password2" class="input" pattern=" [A-Za-z]{1,32}" type="text" placeholder=" " formControlName="password2"required/>
+        <div *ngIf=" f['password2'].errors && submitted"><span style="color:red ;">Incorrect or Invalid username</span></div>
+        <div class="cut"></div>
+        <label for="lastname" class="placeholder">confirm password</label>
+      </div>
+      <button type="text" class="submit">Register</button>
+    </form>
+  </div>
+  </body>
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start ">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Employee Management System
+          </h6>
+          <p>
+             EMS is a tool that helps improve employee satisfaction and productivity to help a company achieve their overall goals. These tools help monitor, assess and control employees' working hours and efficiently utilise human resources
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+      
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="/register" class="text-reset">Registration</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            ems@gmail.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 91 23456788</p>
+          <p><i class="fas fa-print me-3"></i> + 91 23456789</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="https://emsportal.com/">emsportal.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

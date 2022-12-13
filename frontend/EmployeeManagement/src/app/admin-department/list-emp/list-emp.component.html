@@ -1,0 +1,191 @@
+
+
+<button class="btn btn-primary float-right mx-4" style="cursor: pointer;" (click)="authService.logout()" >Logout</button>
+  
+<button type="button" class="btn btn-dark float-right mx-4" 
+data-toggle="modal" data-target="#exampleModal"
+(click)="addClick()"
+data-backdrop="static" data-keyboard="false"
+>
+    Add Employee
+  </button>
+  
+  <button class="btn btn-dark float-right mx-4"  routerLink="/register"> Employee Registration </button><br>
+ 
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl " role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="close" 
+          data-dismiss="modal" aria-label="Close"
+          (click)="closeClick()" >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body w-100">
+            <app-create-update-emp [emp]="emp" *ngIf="ActivateAddEditEmpComp">
+            </app-create-update-emp>
+            <app-view [emp]="emp" *ngIf="ActivateviewEmpComp"></app-view>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<table class="table table-striped table-dark table-hover t1">
+    <thead>
+        <tr>
+
+            <th>
+            Employee Id</th>
+            <th><div class="d-flex flex-row" >
+              <input [(ngModel)]="employee_NameFilter" class="form-control" (keyup)="FilterFn()" placeholder="search by Employee Name">
+              <button type="button" class="btn btn-light" (click)="sortResult('EmployeeId',true)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                </svg>
+              </button> 
+              <button type="button" class="btn btn-light" (click)="sortResult('EmployeeId',false)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                </svg>
+              </button>
+            </div>
+             <br>
+            Employee Name</th>
+            <th>Contact Number</th>
+            <th>Email</th>
+            <th>Designation</th>
+            <th>Reporting To</th>
+            <th>Work Location</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of EmployeeList">
+            <td>{{dataItem.EmployeeId}}</td>
+            <td>{{dataItem.employee_Name}}</td>
+            <td>{{dataItem.contact_Number}}</td>
+            <td>{{dataItem.email}}</td>
+            <td>{{dataItem.position}}</td>
+            <td>{{dataItem.reporting_To}}</td>
+            <td>{{dataItem.work_Location}}</td>
+            <td>
+
+
+                <button type="button" class="btn btn-light mr-1"
+                data-toggle="modal" data-target="#exampleModal"
+(click)="editClick(dataItem)"
+data-backdrop="static" data-keyboard="false"
+                >
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                </svg>
+                </button>
+                <button type="button" class="btn btn-light mr-1"
+                (click)="deleteClick(dataItem)"
+                >
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                  </svg>
+                </button>
+
+                <button type="button" class="btn btn-light mr-1" data-toggle="modal" data-target="#exampleModal"
+
+                    (click)="viewClick(dataItem)" data-backdrop="static" data-keyboard="false">                    
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+
+                      <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+
+                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+
+                    </svg>
+
+                  </button>
+                  
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start ">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Employee Management System
+          </h6>
+          <p>
+             EMS is a tool that helps improve employee satisfaction and productivity to help a company achieve their overall goals. These tools help monitor, assess and control employees' working hours and efficiently utilise human resources
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+      
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="/register" class="text-reset">Registration</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            ems@gmail.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 91 23456788</p>
+          <p><i class="fas fa-print me-3"></i> + 91 23456789</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="https://emsportal.com/">emsportal.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

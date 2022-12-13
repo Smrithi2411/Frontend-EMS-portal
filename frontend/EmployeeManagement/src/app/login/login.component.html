@@ -1,0 +1,36 @@
+
+
+
+<body>
+
+  <div class="form" >
+    <form class="form"  [formGroup]="myform" (ngSubmit)="onSubmit()" class="form-container">
+      <div class="title">Welcome</div>
+      <div class="subtitle">LOGIN</div>
+      <div class="input-container ic1">
+        <input id="username" class="input" type="text" placeholder=" " formControlName="username" pattern=" [A-Za-z]{1,32}" />
+        <div class="cut"></div>
+        <label for="username" class="placeholder">username</label>
+        <div *ngIf=" f && f.invalid  && f.touched"><span style="color:red ;">Incorrect or Invalid username</span></div>
+      </div>
+      <div class="input-container ic2">
+        <input id="password" class="input" type="password"  placeholder=" " formControlName="password" pattern=" [A-Za-z]{1,32}"/>
+        <div class="cut"></div>
+        <label for="pass" class="placeholder">password</label>
+        <div *ngIf=" f && f.invalid  && f.touched"><span style="color:red ;">Incorrect or Invalid username</span></div>
+      </div>
+      <button (click)="submit()" type="text" class="submit">Sign in</button>
+    </form>
+  </div>
+
+</body> 
+<!-- Footer -->
+
+<footer>  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="https://emsportal.com/">emsportal.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

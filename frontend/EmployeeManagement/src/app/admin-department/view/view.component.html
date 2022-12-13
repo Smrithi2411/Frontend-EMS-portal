@@ -1,0 +1,93 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+
+    <div class="form-froup row" style="width: 60%;">
+    
+        <label class="col-sm-2 col-form-label">Employee Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="employee_Name"
+            placeholder="Enter Employee Name">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Email ID</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" [(ngModel)]="email"
+            placeholder="Enter Email ID">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Contact Number</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="contact_Number"
+            placeholder="Enter ">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Em num</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="emergency_Contact_Number"
+            placeholder="Enter Employee Name">
+        </div>
+
+        <label class="col-sm-2 col-form-label">ADDRESS </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="address"
+            placeholder="Enter Employee Name">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Position</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="position"
+            placeholder="Enter Employee Name">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Dob</label>
+        <div class="col-sm-10">
+            <input type="text"  [(ngModel)]="dOB">
+        </div>
+
+        <label class="col-sm-2 col-form-label">martial_Status</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="martial_Status"
+            placeholder="Enter Employee Name">
+        </div>
+
+        <label class="col-sm-2 col-form-label"> blood_Group</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="blood_Group"
+            placeholder="Enter Employee Name">
+        </div>
+
+        <label class="col-sm-2 col-form-label">job_Title</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="job_Title"
+            placeholder="Enter Employee Name">
+        </div>
+
+        <label class="col-sm-2 col-form-label">work_Location</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="work_Location"
+            placeholder="Enter Employee Name">
+        </div>
+    
+    
+        <label class="col-sm-2 col-form-label">Date of joining</label>
+        <div class="col-sm-10">
+            <input type="text"  [(ngModel)]="date_Of_Joining">
+        </div>
+
+        <label class="col-sm-2 col-form-label">reporting_To</label>
+        <div class="col-sm-10">
+            <input type="text"  [(ngModel)]="reporting_To">
+        </div>
+
+        <label class="col-sm-2 col-form-label">linkedin_Link</label>
+        <div class="col-sm-10">
+            <input type="text"  [(ngModel)]="linkedin_Link">
+        </div>
+    
+    </div>
+    <div class="ml-3 bd-highlight" style="width: 40%;">
+    <img [src]=PhotoFilePath height="250px;" width="200px;">
+    <input type="file" (change)="uploadPhoto($event)" class="mt-2"/>
+    </div>
+    </div>
+    
+    
